@@ -1,6 +1,6 @@
-package com.github.JordanGuinn.queue.concurrent;
+package com.github.JordanGuinn.QueueDemo.concurrent;
 
-import com.github.JordanGuinn.queue.model.BoundedQueue;
+import com.github.JordanGuinn.QueueDemo.model.BoundedQueue;
 import org.junit.Test;
 
 import java.util.Random;

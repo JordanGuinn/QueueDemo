@@ -1,4 +1,4 @@
-package com.github.JordanGuinn.queue.model;
+package com.github.JordanGuinn.QueueDemo.model;
 
 import java.util.ArrayList;
 

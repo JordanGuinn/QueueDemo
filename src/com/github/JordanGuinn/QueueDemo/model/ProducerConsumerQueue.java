@@ -1,4 +1,4 @@
-package com.github.JordanGuinn.queue.model;
+package com.github.JordanGuinn.QueueDemo.model;
 
 /**
  * Created by Jordan on 6/15/18.

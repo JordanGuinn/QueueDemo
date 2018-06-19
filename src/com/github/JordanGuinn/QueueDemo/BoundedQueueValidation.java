@@ -1,8 +1,8 @@
-package com.github.JordanGuinn.queue;
+package com.github.JordanGuinn.QueueDemo;
 
-import com.github.JordanGuinn.queue.concurrent.QueueThreadFactory;
-import com.github.JordanGuinn.queue.concurrent.QueueThreadType;
-import com.github.JordanGuinn.queue.model.BoundedQueue;
+import com.github.JordanGuinn.QueueDemo.concurrent.QueueThreadFactory;
+import com.github.JordanGuinn.QueueDemo.concurrent.QueueThreadType;
+import com.github.JordanGuinn.QueueDemo.model.BoundedQueue;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
