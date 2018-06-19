@@ -1,6 +1,6 @@
-package com.github.JordanGuinn.QueueDemo.test.concurrent;
+package com.github.JordanGuinn.QueueDemo.concurrent;
 
-import com.github.JordanGuinn.QueueDemo.test.model.BoundedQueue;
+import com.github.JordanGuinn.QueueDemo.model.BoundedQueue;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * The <code>Consumer</code> class allows for the removal of n elements from any
  * particular <code>BoundedQueue</code> instance by a single thread.
  *
- * @see com.github.JordanGuinn.QueueDemo.test.concurrent.Producer
+ * @see com.github.JordanGuinn.QueueDemo.concurrent.Producer
  */
 public class Consumer<T> extends QueueRunnable<T> {
     static final int DEFAULT_ELEMENT_COUNT = 1000;

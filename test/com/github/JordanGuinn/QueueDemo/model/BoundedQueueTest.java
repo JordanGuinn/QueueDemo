@@ -1,8 +1,8 @@
-package com.github.JordanGuinn.QueueDemo.test.model;
+package com.github.JordanGuinn.QueueDemo.model;
 
-import com.github.JordanGuinn.QueueDemo.test.concurrent.QueueRunnable;
-import com.github.JordanGuinn.QueueDemo.test.concurrent.QueueThreadFactory;
-import com.github.JordanGuinn.QueueDemo.test.concurrent.QueueThreadType;
+import com.github.JordanGuinn.QueueDemo.concurrent.QueueRunnable;
+import com.github.JordanGuinn.QueueDemo.concurrent.QueueThreadFactory;
+import com.github.JordanGuinn.QueueDemo.concurrent.QueueThreadType;
 import org.junit.Test;
 
 import java.util.ArrayList;
