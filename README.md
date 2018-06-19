@@ -44,7 +44,8 @@ There are a handful of helpful unit tests associated with this implementation.  
 
 
 ```
-However you run these tests
+cd out/artifacts/Producer_Consumer_jar/
+java -cp .:../../../lib/junit-4.12.jar org.junit.runner.JUnitCore
 ```
 
 ## Author

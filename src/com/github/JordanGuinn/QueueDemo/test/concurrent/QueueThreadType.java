@@ -1,4 +1,4 @@
-package com.github.JordanGuinn.QueueDemo.concurrent;
+package com.github.JordanGuinn.QueueDemo.test.concurrent;
 
 /**
  * <code>QueueThreadType</code> encapsulates the full collection of thread types

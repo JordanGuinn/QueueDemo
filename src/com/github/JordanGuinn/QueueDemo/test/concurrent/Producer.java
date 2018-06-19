@@ -1,6 +1,6 @@
-package com.github.JordanGuinn.QueueDemo.concurrent;
+package com.github.JordanGuinn.QueueDemo.test.concurrent;
 
-import com.github.JordanGuinn.QueueDemo.model.BoundedQueue;
+import com.github.JordanGuinn.QueueDemo.test.model.BoundedQueue;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Supplier;
@@ -9,7 +9,7 @@ import java.util.function.Supplier;
  * The <code>Producer</code> class allows for the addition of n elements to any
  * particular <code>BoundedQueue</code> instance by a single thread.
  *
- * @see com.github.JordanGuinn.QueueDemo.concurrent.Consumer
+ * @see com.github.JordanGuinn.QueueDemo.test.concurrent.Consumer
  */
 public class Producer<T> extends QueueRunnable<T> {
     private final Supplier<T> supplier;
