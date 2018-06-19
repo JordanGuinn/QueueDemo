@@ -1,4 +1,6 @@
 # IntelliJ Configuration #
 ##########################
 .idea/
+out/
 *.iml
+.DS_Store
