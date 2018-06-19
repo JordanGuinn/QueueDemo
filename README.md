@@ -26,17 +26,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
 
 ### Running the Program
 
-Building and executing the application is a very straightforward process.  Naturally, we first need to compile all of our java classes, which can be done as follows:
+Building and executing your standard Java application generally involves compiling all of the program's Java files into corresponding ".class" files, and then bringing all those generated class files into a single executable JAR.  However, for the sake of simplicity, I've gone ahead and done all that for you.
+
+As a result, once you've successfully cloned/downloaded the contents of this repository, running the program is simply a matter of locating and executing said jarfile.  From the root directory of the project:
 
 ```
-javac -sourcepath src/com/github/JordanGuinn/queue -d out BoundedQueueValidation.java
-```
-
-This should result in the generation of a new "out" directory, containing all the of compiled classes.  Once this happens, simply run the main jar:
-
-```
-cd out
-java -jar BoundedQueueValidation.jar
+cd out/artifacts/Producer_Consumer_jar/
+java -jar Producer-Consumer.jar
 ```
 
 
