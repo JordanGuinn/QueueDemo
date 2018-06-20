@@ -21,10 +21,8 @@ public class QueueThreadFactoryTest {
 
     @After
     public void writeSuccessToConsole() {
-        System.out.println();
-        System.out.println("Test has been completed.");
-        System.out.println("*********************************************************");
-        System.out.println();
+        System.out.println("\nTest has been completed.");
+        System.out.println("*********************************************************\n");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -39,8 +37,7 @@ public class QueueThreadFactoryTest {
 
     @Test
     public void factoryProvidesProducerThreads() throws InterruptedException {
-        System.out.println("Starting 'factoryProvidesProducerThreads' test...");
-        System.out.println();
+        System.out.println("Starting 'factoryProvidesProducerThreads' test...\n");
 
         CountDownLatch latch = new CountDownLatch(1);
 
@@ -57,8 +54,7 @@ public class QueueThreadFactoryTest {
 
     @Test
     public void factoryProvidesConsumerThreads() throws InterruptedException {
-        System.out.println("Starting 'factoryProvidesConsumerThreads' test...");
-        System.out.println();
+        System.out.println("Starting 'factoryProvidesConsumerThreads' test...\n");
 
         CountDownLatch latch = new CountDownLatch(2);
 

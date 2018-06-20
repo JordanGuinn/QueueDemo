@@ -69,7 +69,6 @@ public class BoundedQueueTest {
         latch.await();
 
         assertTrue(queue.size() == 100);
-        assertTrue(enqueueThread.getState().equals(Thread.State.TERMINATED));
     }
 
     @Test

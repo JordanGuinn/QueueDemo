@@ -20,18 +20,17 @@ public class BoundedQueueValidation {
     private static final int queueCapacity = 300;
 
     public static void main(String[] args) {
-        System.out.println("Hello, and welcome to my custom queue project!");
-        System.out.println("The purpose of this project is to demonstrate the behavior of my thread-safe BoundedQueue implementation.");
-        System.out.println("It was designed to handle multiple Producer and Consumer Threads operating on it concurrently, without fear of data inconsistency.");
-        System.out.println("For this particular demonstration, we'll operate on a BoundedQueue instance created from these parameters:");
-        System.out.println();
+        System.out.println("\n**********************************************************************");
+        System.out.println("Hello, and welcome to my custom queue project!\n");
+        System.out.print("The purpose of this project is to demonstrate the behavior of my thread-safe\nBoundedQueue implementation.  ");
+        System.out.print("It was designed to handle multiple Producer and \nConsumer Threads operating on it concurrently, without fear of data inconsistency.\n");
+        System.out.print("For this particular demonstration, we'll operate on a BoundedQueue instance \ncreated from these parameters:\n\n");
+
         System.out.println("Thread Count (Per Type): " + threadTypeCount);
         System.out.println("Element Count Per Thread: " + elementCountPerThread);
         System.out.println("Total Queue Capacity: " + queueCapacity);
-        System.out.println();
-        System.out.println("Let's begin!");
 
-        System.out.println();
+        System.out.println("\nLet's begin!\n");
 
         CountDownLatch latch = new CountDownLatch(threadTypeCount * 2);
 
@@ -46,12 +45,12 @@ public class BoundedQueueValidation {
         try {
             latch.await();
         } catch (InterruptedException e) {
-            System.err.println("One or more threads interrupted while manipulating queue.  Exiting early...");
+            System.err.println("\nOne or more threads interrupted while manipulating queue.  Exiting early...");
             System.exit(1);
         }
 
-        System.out.println();
-        System.out.println("All Producer & Consumer Threads have completed!  Queue size is " + mainQueue.size() + ".");
+        System.out.println("\nAll Producer & Consumer Threads have completed!  Queue size is " + mainQueue.size() + ".");
+
         System.exit(0);
     }
 }
