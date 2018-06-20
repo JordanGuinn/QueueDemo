@@ -1,7 +1,9 @@
 package com.github.JordanGuinn.QueueDemo.model;
 
 /**
- * Created by Jordan on 6/15/18.
+ * <code>ProducerConsumerQueue</code> is a pretty standard queue interface, exposing mechanisms
+ * for both adding and removing elements as necessary.  The utilization of generics also makes it
+ * easy to allow use with just about any data type.
  *
  * TODO: Consider throwing InterruptedExceptions directly, as opposed to handling and suppressing them.
  */

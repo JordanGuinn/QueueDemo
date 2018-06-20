@@ -3,7 +3,11 @@ package com.github.JordanGuinn.QueueDemo.model;
 import java.util.ArrayList;
 
 /**
- * Created by Jordan on 6/15/18.
+ * <code>BoundedQueue</code> is a thread-safe, blocking implementation of
+ * <code>ProducerConsumerQueue</code>, complete with a specifiable upper limit.
+ * It was designed to handle use by multiple <code>Producer</code> and
+ * <code>Consumer</code> threads concurrently, without concern of deadlock, livelock
+ * or read/write collisions.
  */
 public class BoundedQueue<T> implements ProducerConsumerQueue<T> {
     private final int queueCapacity;
@@ -20,7 +24,14 @@ public class BoundedQueue<T> implements ProducerConsumerQueue<T> {
     }
 
     /**
-     * @param item Object to be added to the beginning of the queue.
+     * Add the element provided to the beginning of the queue.  If the queue is already at capacity,
+     * block the calling thread until an element is removed from the queue.  It should be noted that
+     * while blocking, the calling thread relinquishes the lock of this BoundedQueue so that any other
+     * dequeue threads may come along and actually remove an element.
+     *
+     * When complete, notify any and all threads waiting for the intrinsic lock of this BoundedQueue.
+     *
+     * @param item Element to be added to the beginning of the queue.
      */
     @Override
     public synchronized void enqueue(T item) {
@@ -29,7 +40,7 @@ public class BoundedQueue<T> implements ProducerConsumerQueue<T> {
                 wait();
             }
         } catch (InterruptedException e) {
-            //  Instead of catching this, consider propagating this Exception up the chain
+            //  Instead of catching this, consider propagating this Exception up the chain?
             Thread.currentThread().interrupt();
             return;
         }
@@ -39,7 +50,14 @@ public class BoundedQueue<T> implements ProducerConsumerQueue<T> {
     }
 
     /**
-     * @return Object freshly removed from the end of the queue.
+     * Remove the very last element in the queue.  If the queue is already empty, block the
+     * calling thread until an element is added to the queue.  Similar to <code>enqueue</code>,
+     * the calling thread relieves ownership of this BoundedQueue lock while blocking so that
+     * any other enqueue threads may come along and actually add an element.
+     *
+     * When complete, notify any and all threads waiting for the intrinsic lock of this BoundedQueue.
+     *
+     * @return Element freshly removed from the end of the queue.
      */
     @Override
     public synchronized T dequeue() {
@@ -48,7 +66,7 @@ public class BoundedQueue<T> implements ProducerConsumerQueue<T> {
                 wait();
             }
         } catch (InterruptedException e) {
-            //  Instead of catching this, consider propagating this Exception up the chain
+            //  Instead of catching this, consider propagating this Exception up the chain?
             Thread.currentThread().interrupt();
             return null;
         }
