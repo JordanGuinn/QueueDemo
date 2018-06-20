@@ -30,26 +30,6 @@ public class QueueThreadFactory<T> {
     }
 
     /**
-     *
-     * @param threadType
-     * @return
-     */
-    public Thread getThread(QueueThreadType threadType) throws IllegalArgumentException {
-        if (threadType == null) {
-            throw new IllegalArgumentException("QueueThreadType required to create Thread");
-        }
-
-        switch (threadType) {
-            case Producer:
-                return getThread(threadType, QueueRunnable.DEFAULT_ELEMENT_COUNT);
-            case Consumer:
-                return getThread(threadType, QueueRunnable.DEFAULT_ELEMENT_COUNT);
-            default:
-                throw new IllegalArgumentException("Invalid ThreadType provided");
-        }
-    }
-
-    /**
      * @param threadType    The type of thread to be created
      * @param elementCount  The total number of elements this newly generated queue thread will be responsible
      *                      for either producing or consuming

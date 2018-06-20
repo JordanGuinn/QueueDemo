@@ -32,7 +32,7 @@ public class QueueThreadFactoryTest {
         BoundedQueue<Integer> mainQueue = new BoundedQueue<>(50);
         QueueThreadFactory threadFactory = new QueueThreadFactory<>(mainQueue, intSupplier);
 
-        threadFactory.getThread(null);
+        threadFactory.getThread(null, 100);
     }
 
     @Test
