@@ -1,28 +1,31 @@
 # Bounded Producer-Consumer
 
-Welcome to my implementation of a bounded Producer-Consumer Queue!
+Welcome to my implementation of a bounded Producer-Consumer Queue!  This implementation was designed to be thread-safe
 
 ## Getting Started
 
-Something about what this README is supposed to do.
+This README is intended to serve as a simple guide to running and testing the 
 
 ### Prerequisites
 
-This project is based on [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), so you'll need to get that version installed if you haven't already.
-Instructions for Java 8 installations based on operating system can be found [here](https://java.com/en/download/help/download_options.xml).
+Before moving any further, it should be noted that this project is based exclusively on [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  If you've already installed the Java 8 JDK, feel free to skip this step.
+Otherwise, installation instructions based on operating system can be found [here](https://java.com/en/download/help/download_options.xml).
 
-Once installed, feel free to confirm your version of Java with the following command:
+Confirmation of the correct Java version can be determined with the following command:
 
 ```
 java -version
 ```
-The output should look something similar to this:
+
+If all has gone successfully, you should see something like this:
 
 ```
 java version "1.8.0_60"
 Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
 Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
 ```
+It's as simple as that!  Now we're ready to run the application.
+
 
 ## Executing the Program
 
@@ -36,7 +39,7 @@ java -jar Producer-Consumer.jar
 ```
 
 
-And there you have it!
+Upon running the java command, you should begin noticing console output breaking down each step of the main application.  If so, congratulations, you've successfully exercised my ProducerConsumerQueue implementation!
 
 ## Running the Tests
 
