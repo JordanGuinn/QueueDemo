@@ -1,10 +1,12 @@
 # Bounded Producer-Consumer
 
-Welcome to my implementation of a bounded Producer-Consumer Queue!  This implementation was designed to be thread-safe
+Welcome to my demo Producer-Consumer Queue implementation!
 
 ## Getting Started
 
-This README is intended to serve as a simple guide to running and testing the 
+The BoundedQueue class captured here was designed to be both efficient and thread-safe, capable of handling many different Producer and Consumer Threads all acting upon it concurrently.  It was also designed to be blocking, only resolving element insertions/deletions when queue capacity allows for it. 
+
+This README is intended to serve as a simple step-by-step guide to quickly run and test the lightweight application I've built around this implementation.
 
 ### Prerequisites
 
@@ -24,14 +26,18 @@ java version "1.8.0_60"
 Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
 Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
 ```
-It's as simple as that!  Now we're ready to run the application.
+Easy!  Now we're ready to run the application.
 
 
 ## Executing the Program
 
-Building and executing your standard Java application generally involves compiling all of the program's Java files into corresponding ".class" files, and then bringing all those generated class files into a single executable JAR.  However, for the sake of simplicity, I've gone ahead and done all that for you.
+Building a basic Java application typically involves:
+1. Compiling all of the application's Java files into corresponding `.class` files.
+2. Collapsing all those generated `.class` files into a single executable `JAR`, complete with a corresponding MANIFEST.  
 
-As a result, once you've successfully cloned/downloaded the contents of this repository, running the program is simply a matter of locating and executing said jarfile.  From the root directory of the project:
+For the sake of simplicity and expediency, I've preemptively done all that for you.
+
+In order to execute this program, you'll first need to download and unzip this repo.  Then, from the root directory of the project:
 
 ```
 cd out/artifacts/Producer_Consumer_jar/
@@ -39,13 +45,15 @@ java -jar Producer-Consumer.jar
 ```
 
 
-Upon running the java command, you should begin noticing console output breaking down each step of the main application.  If so, congratulations, you've successfully exercised my ProducerConsumerQueue implementation!
+Upon running the java command, you should begin noticing insightful console output.  If so, congratulations, you've successfully exercised my ProducerConsumerQueue implementation!
 
 ## Running the Tests
 
-There are a handful of helpful unit tests associated with this implementation.  In order to run those tests manually from the command line, we'll need to add the directories containing JUnit (as well as our application/test code) to our classpath.  Only then can we specify the unit tests classes to execute.  
+In addition to the application itself, there are also a handful of helpful [JUnit](https://junit.org/junit4/) tests associated with this implementation.  In order to run those tests manually from the command line, we'll need to: 
+1. Add the directories containing [JUnit](https://junit.org/junit4/), application code and test code to the `CLASSPATH` environment variable.
+2. Specify the actual unit test class to execute.  
 
-For those on a Unix machine, the corresponding commands will look something like this:
+For those on Unix machines, the commands for this will look something like:
 
 ```
 cd out/artifacts/Producer_Consumer_jar/
@@ -53,13 +61,17 @@ java -cp "../../../lib/*:../../production/Producer-Consumer:../../test/Producer-
 java -cp "../../../lib/*:../../production/Producer-Consumer:../../test/Producer-Consumer" org.junit.runner.JUnitCore com.github.JordanGuinn.QueueDemo.model.BoundedQueueTest
 ```
 
-For those on a Windows machine, they're going to look more like this:
+And for those on Windows machines, they're going to look more like:
 
 ```
 cd out/artifacts/Producer_Consumer_jar/
 java -cp "../../../lib/*;../../production/Producer-Consumer;../../test/Producer-Consumer" org.junit.runner.JUnitCore com.github.JordanGuinn.QueueDemo.concurrent.QueueThreadFactoryTest
 java -cp "../../../lib/*;../../production/Producer-Consumer;../../test/Producer-Consumer" org.junit.runner.JUnitCore com.github.JordanGuinn.QueueDemo.model.BoundedQueueTest
 ```
+
+If successful, you should see informative console output for each unit test executed.  
+
+And just like that, you've comprehensively tested my ProducerConsumerQueue implementation!
 
 ## Author
 
