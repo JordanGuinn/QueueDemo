@@ -53,7 +53,7 @@ In addition to the application itself, there are also a handful of helpful [JUni
 1. Add the directories containing [JUnit](https://junit.org/junit4/), application code and test code to the `CLASSPATH` environment variable.
 2. Specify the actual unit test class to execute.  
 
-For those on Unix machines, the commands for this will look something like:
+For those on Unix machines, the commands for this will look something like (again from the project's root directory):
 
 ```
 cd out/artifacts/Producer_Consumer_jar/
