@@ -34,6 +34,9 @@ public class Consumer<T> extends QueueRunnable<T> {
     }
 
     /**
+     * Create a new Consumer instance which, in addition to maintaining responsibility for
+     * removing n (elementCount) elements from the queue provided, is also capable of
+     * informing other threads of it's completion with the specified CountDownLatch.
      *
      * @param queue         BoundedQueue instance to be added to
      * @param elementCount  Total number of elements to be removed
