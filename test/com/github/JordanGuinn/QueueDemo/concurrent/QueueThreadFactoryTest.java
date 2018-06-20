@@ -7,14 +7,21 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Supplier;
 
+import static org.junit.Assert.assertTrue;
+
 /**
- * Created by Jordan on 6/18/18.
+ * <code>QueueThreadFactoryTest</code> simply ensures that any given instance of a
+ * <code>QueueThreadFactory</code> will appropriately provide Consumer & Producer threads
+ * as necessary, in addition to throwing particular exceptions under certain circumstances.
  */
 public class QueueThreadFactoryTest {
     private static final Supplier<Integer> intSupplier = () -> new Random().nextInt();
 
     @Test(expected = IllegalArgumentException.class)
     public void nullParamThrowsIllegalArgumentException() {
+        System.out.println("Executing 'nullParamThrowsIllegalArgumentException' test...");
+        System.out.println();
+
         BoundedQueue<Integer> mainQueue = new BoundedQueue<>(50);
         QueueThreadFactory threadFactory = new QueueThreadFactory<>(mainQueue, intSupplier);
 
@@ -23,6 +30,9 @@ public class QueueThreadFactoryTest {
 
     @Test
     public void factoryProvidesProducerThreads() throws InterruptedException {
+        System.out.println("Executing 'factoryProvidesProducerThreads' test...");
+        System.out.println();
+
         CountDownLatch latch = new CountDownLatch(1);
 
         BoundedQueue<Integer> mainQueue = new BoundedQueue<>(50);
@@ -32,10 +42,15 @@ public class QueueThreadFactoryTest {
         producerThread.start();
 
         latch.await();
+
+        assertTrue(mainQueue.size() == 50);
     }
 
     @Test
     public void factoryProvidesConsumerThreads() throws InterruptedException {
+        System.out.println("Executing 'factoryProvidesConsumerThreads' test...");
+        System.out.println();
+
         CountDownLatch latch = new CountDownLatch(2);
 
         BoundedQueue<Integer> mainQueue = new BoundedQueue<>(50);
@@ -47,5 +62,7 @@ public class QueueThreadFactoryTest {
         consumerThread.start();
 
         latch.await();
+
+        assertTrue(mainQueue.size() == 25);
     }
 }

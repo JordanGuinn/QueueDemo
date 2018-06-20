@@ -42,14 +42,13 @@ public class Producer<T> extends QueueRunnable<T> {
     }
 
     /**
-     * Create a new Producer instance responsible for adding n elements to the queue provided
-     * (n being the elementCount argument specified).  Once more, the custom <code>Supplier</code>
-     * ensures this Producer has a mechanism by which to actually generate the elements to add to the queue.
+     * Create a new Producer instance similar to the rest, only also capable of informing external
+     * parties the moment this Producer has completed execution (by means of the provided CountDownLatch).
      *
      * @param queue         BoundedQueue instance to be added to
      * @param supplier      Mechanism by which instances of T are produced
      * @param elementCount  Total number of elements to be added
-     * @param latch
+     * @param latch         Latch to be decremented upon completion of this Runnable
      */
     public Producer(BoundedQueue<T> queue, Supplier<T> supplier, int elementCount, CountDownLatch latch) {
         super(queue, elementCount, latch);

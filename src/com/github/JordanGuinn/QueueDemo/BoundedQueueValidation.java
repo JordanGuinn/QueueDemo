@@ -20,8 +20,10 @@ public class BoundedQueueValidation {
     private static final int queueCapacity = 300;
 
     public static void main(String[] args) {
-        System.out.println("The purpose of this class is to demonstrate the behavior of the thread-safe BoundedQueue implementation.");
-        System.out.println("We will concurrently operate on a BoundedQueue instance based on the following parameters:");
+        System.out.println("Hello, and welcome to my custom queue project!");
+        System.out.println("The purpose of this project is to demonstrate the behavior of my thread-safe BoundedQueue implementation.");
+        System.out.println("It was designed to handle multiple Producer and Consumer Threads operating on it concurrently, without fear of data inconsistency.");
+        System.out.println("For this particular demonstration, we'll operate on a BoundedQueue instance created from these parameters:");
         System.out.println();
         System.out.println("Thread Count (Per Type): " + threadTypeCount);
         System.out.println("Element Count Per Thread: " + elementCountPerThread);

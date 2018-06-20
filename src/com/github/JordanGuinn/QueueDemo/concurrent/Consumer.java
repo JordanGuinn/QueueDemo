@@ -11,9 +11,10 @@ import java.util.concurrent.CountDownLatch;
  * @see com.github.JordanGuinn.QueueDemo.concurrent.Producer
  */
 public class Consumer<T> extends QueueRunnable<T> {
-    static final int DEFAULT_ELEMENT_COUNT = 1000;
 
     /**
+     * Generate a new Consumer instance responsible for pulling elements from the
+     * provided BoundedQueue.
      *
      * @param queue BoundedQueue instance to be removed from
      */
@@ -22,6 +23,8 @@ public class Consumer<T> extends QueueRunnable<T> {
     }
 
     /**
+     * Create a new Consumer capable of pulling n elements from the provided BoundedQueue,
+     * with n being the elementCount argument.
      *
      * @param queue         BoundedQueue instance to be added to
      * @param elementCount  Total number of elements to be removed
@@ -34,7 +37,7 @@ public class Consumer<T> extends QueueRunnable<T> {
      *
      * @param queue         BoundedQueue instance to be added to
      * @param elementCount  Total number of elements to be removed
-     * @param latch
+     * @param latch         Latch to be decremented upon completion of this Runnable
      */
     public Consumer(BoundedQueue<T> queue, int elementCount, CountDownLatch latch) {
         super(queue, elementCount, latch);

@@ -24,6 +24,9 @@ public class BoundedQueueTest {
 
     @Test
     public void enqueueAddsToQueue() {
+        System.out.println("Executing 'enqueueAddsToQueue' test...");
+        System.out.println();
+
         BoundedQueue<Boolean> mainQueue = new BoundedQueue<>(100);
 
         for (int i = 0; i < 100; i++) {
@@ -35,6 +38,9 @@ public class BoundedQueueTest {
 
     @Test
     public void enqueueBlocksWhenFull() throws InterruptedException {
+        System.out.println("Executing 'enqueueBlocksWhenFull' test...");
+        System.out.println();
+
         CountDownLatch latch = new CountDownLatch(1);
 
         BoundedQueue<Boolean> queue = new BoundedQueue<>(100);
@@ -58,6 +64,9 @@ public class BoundedQueueTest {
 
     @Test
     public void enqueueQuietlyExitsWhenInterrupted() throws InterruptedException {
+        System.out.println("Executing 'enqueueQuietlyExitsWhenInterrupted' test...");
+        System.out.println();
+
         BoundedQueue<Boolean> queue = new BoundedQueue<>(100);
         QueueThreadFactory queueThreadFactory = new QueueThreadFactory<>(queue, boolSupplier);
 
@@ -78,6 +87,9 @@ public class BoundedQueueTest {
 
     @Test
     public void dequeueRemovesFromQueue() {
+        System.out.println("Executing 'dequeueRemovesFromQueue' test...");
+        System.out.println();
+
         BoundedQueue<String> mainQueue = new BoundedQueue<>(100);
 
         for (int i = 0; i < 100; i++) {
@@ -93,6 +105,9 @@ public class BoundedQueueTest {
 
     @Test
     public void dequeueBlocksWhenEmpty() throws InterruptedException {
+        System.out.println("Executing 'dequeueBlocksWhenEmpty' test...");
+        System.out.println();
+
         BoundedQueue<String> queue = new BoundedQueue<>(100);
         QueueThreadFactory queueThreadFactory = new QueueThreadFactory<>(queue, stringSupplier);
 
@@ -123,33 +138,53 @@ public class BoundedQueueTest {
 
     @Test
     public void smallQueueWithFewThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'smallQueueWithFewThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(5, 5, 5);
     }
 
     @Test
     public void smallQueueWithManyThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'smallQueueWithManyThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(5, 20, 20);
     }
 
     @Test
     public void mediumQueueWithFewThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'mediumQueueWithFewThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(50, 10, 10);
     }
 
     @Test
     public void mediumQueueWithManyThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'mediumQueueWithManyThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(50, 40, 40);
     }
 
     @Test
     public void largeQueueWithFewThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'largeQueueWithFewThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(500, 5, 5);
     }
 
     @Test
     public void largeQueueWithManyThreadsCompletes() throws InterruptedException {
+        System.out.println("Executing 'largeQueueWithManyThreadsCompletes' test...");
+        System.out.println();
+
         queueHandlesConcurrentOperations(1000, 75, 75);
     }
+
+    ///////////////////////////////////////////////////////////////
 
     private void queueHandlesConcurrentOperations(int queueCapacity, int consumerThreadCount, int producerThreadCount) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(consumerThreadCount + producerThreadCount);

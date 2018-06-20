@@ -37,17 +37,23 @@ public abstract class QueueRunnable<T> implements Runnable {
      *
      * @param queue         BoundedQueue instance to be added to
      * @param elementCount  Total number of elements to be removed
-     * @param latch
+     * @param latch         Latch capable of being decremented upon Runnable completion
      */
     QueueRunnable(BoundedQueue<T> queue, int elementCount, CountDownLatch latch) {
         this(queue, elementCount);
         this.latch = latch;
     }
 
+    /**
+     * Write a general message indicating the start of this Runnable's execution to System.out.
+     */
     void informOfExecutionStart() {
         System.out.println(Thread.currentThread().getName() + " has begun execution.  Queue size is " + queue.size() + ".");
     }
 
+    /**
+     *
+     */
     void informOfExecutionCompletion() {
         if(latch != null) {
             latch.countDown();
