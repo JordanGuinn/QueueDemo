@@ -24,7 +24,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
 Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
 ```
 
-### Executing the Program
+## Executing the Program
 
 Building and executing your standard Java application generally involves compiling all of the program's Java files into corresponding ".class" files, and then bringing all those generated class files into a single executable JAR.  However, for the sake of simplicity, I've gone ahead and done all that for you.
 

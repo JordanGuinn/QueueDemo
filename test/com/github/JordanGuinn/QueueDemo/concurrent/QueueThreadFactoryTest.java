@@ -1,6 +1,7 @@
 package com.github.JordanGuinn.QueueDemo.concurrent;
 
 import com.github.JordanGuinn.QueueDemo.model.BoundedQueue;
+import org.junit.After;
 import org.junit.Test;
 
 import java.util.Random;
@@ -10,17 +11,25 @@ import java.util.function.Supplier;
 import static org.junit.Assert.assertTrue;
 
 /**
- * <code>QueueThreadFactoryTest</code> simply ensures that any given instance of a
+ * <code>QueueThreadFactoryTest</code> simply ensures that any given instance of
  * <code>QueueThreadFactory</code> will appropriately provide Consumer & Producer threads
  * as necessary, in addition to throwing particular exceptions under certain circumstances.
  */
 public class QueueThreadFactoryTest {
+
     private static final Supplier<Integer> intSupplier = () -> new Random().nextInt();
+
+    @After
+    public void writeSuccessToConsole() {
+        System.out.println();
+        System.out.println("Test has been completed.");
+        System.out.println("*********************************************************");
+        System.out.println();
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void nullParamThrowsIllegalArgumentException() {
         System.out.println("Executing 'nullParamThrowsIllegalArgumentException' test...");
-        System.out.println();
 
         BoundedQueue<Integer> mainQueue = new BoundedQueue<>(50);
         QueueThreadFactory threadFactory = new QueueThreadFactory<>(mainQueue, intSupplier);
@@ -30,7 +39,7 @@ public class QueueThreadFactoryTest {
 
     @Test
     public void factoryProvidesProducerThreads() throws InterruptedException {
-        System.out.println("Executing 'factoryProvidesProducerThreads' test...");
+        System.out.println("Starting 'factoryProvidesProducerThreads' test...");
         System.out.println();
 
         CountDownLatch latch = new CountDownLatch(1);
@@ -48,7 +57,7 @@ public class QueueThreadFactoryTest {
 
     @Test
     public void factoryProvidesConsumerThreads() throws InterruptedException {
-        System.out.println("Executing 'factoryProvidesConsumerThreads' test...");
+        System.out.println("Starting 'factoryProvidesConsumerThreads' test...");
         System.out.println();
 
         CountDownLatch latch = new CountDownLatch(2);
